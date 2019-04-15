@@ -1,0 +1,17 @@
+server:
+  port: 8090
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    # \u6D4B\u8BD5\u65F6\u5173\u95ED\u81EA\u6211\u4FDD\u62A4\u673A\u5236\uFF0C\u4FDD\u8BC1\u4E0D\u53EF\u7528\u670D\u52A1\u53CA\u65F6\u8E22\u51FA
+    enable-self-preservation: false
+spring:
+  application:
+    name: eurka-server

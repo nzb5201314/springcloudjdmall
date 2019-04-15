@@ -1,0 +1,25 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: service-provider
+  datasource: #mysql\u6570\u636E\u5E93
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.131:3306/jdmall?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+
+mybatis: #mybatis\u6620\u5C04\u6587\u4EF6
+  mapper-locations: classpath:mapper/*.xml
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka/
+
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+
+
