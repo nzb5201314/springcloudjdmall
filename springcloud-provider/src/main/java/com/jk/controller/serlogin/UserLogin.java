@@ -9,7 +9,15 @@
  */
 
 /**
+<<<<<<< Updated upstream
  * 〈一句话功能简述〉<br> 
+=======
+<<<<<<< Updated upstream
+ * 〈一句话功能简述〉<br>
+=======
+ * 〈一句话功能简述〉<br>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
  * 〈a〉
  *
  * @author Administrator
