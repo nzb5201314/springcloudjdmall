@@ -9,6 +9,7 @@ package com.jk.controller.serlogin; /**
  */
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 〈登录注册类〉
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Controller;
  * @since 1.0.0
  */
 @Controller
+@RequestMapping("q")
 public class UserLogin {
-
 }
 
