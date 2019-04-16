@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 1.0.0
  */
 @Controller
-@RequestMapping("q")
+@RequestMapping("a")
 public class UserLogin {
 }
 
