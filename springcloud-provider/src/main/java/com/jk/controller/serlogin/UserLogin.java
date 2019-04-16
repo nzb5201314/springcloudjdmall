@@ -8,8 +8,15 @@ package com.jk.controller.serlogin; /**
  * 作者姓名           修改时间           版本号              描述
  */
 
+import com.jk.model.usersigninbean.UserBean;
+import com.jk.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 
 /**
  * 〈登录注册类〉
@@ -19,7 +26,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 1.0.0
  */
 @Controller
-@RequestMapping("a")
 public class UserLogin {
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/userlogin")
+    @ResponseBody
+    public HashMap<String, Object> login(UserBean userBean, String imgcode, HttpServletRequest request){
+
+
+        return userService.login(userBean,imgcode,request);
+    }
 }
 
