@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
         UserBean userBean2=new UserBean();
         BeanUtils.copyProperties(userInfo, userBean2);
         if (userBean2 == null) {
-            result.put("code", 2);
+            result.put("code", 2); 
             result.put("msg", "账号或密码错误");
             return result;
         }

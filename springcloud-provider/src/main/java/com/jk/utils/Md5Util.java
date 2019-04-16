@@ -22,6 +22,7 @@ public class Md5Util {
 	 * @param plainText
 	 * @return
 	 */
+	
 	public static String getMd532(String plainText) {  
 	    try {  
 	        MessageDigest md = MessageDigest.getInstance("MD5");  

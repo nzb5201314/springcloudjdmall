@@ -22,5 +22,6 @@ import com.jk.model.usersigninbean.UserBean;
 public interface UserMapper {
 
     UserBean findUserInfoByAccount(String accountnumber);
+
 }
 
