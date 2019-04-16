@@ -1,4 +1,4 @@
-/**
+package com.jk.controller.serlogin; /**
  * Copyright (C), 2019,金科
  * FileName: UserLogin
  * Author:   HT
@@ -8,22 +8,16 @@
  * 作者姓名           修改时间           版本号              描述
  */
 
+import org.springframework.stereotype.Controller;
+
 /**
-<<<<<<< Updated upstream
- * 〈一句话功能简述〉<br> 
-=======
-<<<<<<< Updated upstream
- * 〈一句话功能简述〉<br>
-=======
- * 〈一句话功能简述〉<br>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
- * 〈a〉
+ * 〈登录注册类〉
  *
- * @author Administrator
+ * @author ht
  * @create 2019/4/16
  * @since 1.0.0
  */
+@Controller
 public class UserLogin {
 
 }
