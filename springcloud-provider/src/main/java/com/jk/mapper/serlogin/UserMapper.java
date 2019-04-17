@@ -22,7 +22,7 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface UserMapper {
     @Select("select * from h_user t where t.accountnumber= #{accountnumber}")
-     UserBean findUserInfoByAccount(String accountnumber);
+    UserBean findUserInfoByAccount(String accountnumber);
 
 }
 

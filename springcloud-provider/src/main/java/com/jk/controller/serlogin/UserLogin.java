@@ -32,7 +32,7 @@ public class UserLogin {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value="/userlogin", method= RequestMethod.GET)
+    @RequestMapping(value="/userlogin",method= RequestMethod.GET)
     @ResponseBody
     public HashMap<String, Object> login(UserBean userBean, String imgcode, HttpServletRequest request){
 

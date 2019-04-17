@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
             return result;
         }
         //通过前天传过来的账号获取账号的信息
-        //UserBean userInfo = userDao.findUserInfoByAccount(userBean.getLoginnumber());
+
         UserBean userInfo = userMapper.findUserInfoByAccount(userBean.getAccountnumber());
         if (userInfo == null) {
             result.put("code", 2); 

@@ -17,7 +17,7 @@ public class Md5Util {
 	 * 
 	 * 方法: getMd532 <br>
 	 * 描述: 32位md5加密 <br>
-	 * 作者: Teacher song<br>
+	 * 作者: Teacher son<br>
 	 * 时间: 2017年6月27日 下午2:27:38
 	 * @param plainText
 	 * @return
