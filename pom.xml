@@ -10,6 +10,10 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>service-api</module>
+        <module>springcloud-eureka</module>
+        <module>springcloud-feign</module>
+        <module>springcloud-provider</module>
+
     </modules>
 
 

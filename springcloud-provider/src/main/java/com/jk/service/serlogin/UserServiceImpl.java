@@ -11,9 +11,7 @@ package com.jk.service.serlogin;
 
 import com.jk.mapper.serlogin.UserMapper;
 import com.jk.model.usersigninbean.UserBean;
-import com.jk.service.UserService;
 import com.jk.utils.Md5Util;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,9 +46,7 @@ public class UserServiceImpl implements UserService {
         //通过前天传过来的账号获取账号的信息
         //UserBean userInfo = userDao.findUserInfoByAccount(userBean.getLoginnumber());
         UserBean userInfo = userMapper.findUserInfoByAccount(userBean.getAccountnumber());
-        UserBean userBean2=new UserBean();
-        BeanUtils.copyProperties(userInfo, userBean2);
-        if (userBean2 == null) {
+        if (userInfo == null) {
             result.put("code", 2); 
             result.put("msg", "账号或密码错误");
             return result;
@@ -58,7 +54,7 @@ public class UserServiceImpl implements UserService {
         //判断前台传过来的密码是否和数据库的一致（注意：前台的密码需要加密后再比较）
         String password = userBean.getPassword();
         String md516 = Md5Util.getMd516(password);
-        if (!userBean2.getPassword().equals(md516)) {
+        if (!userInfo.getPassword().equals(md516)) {
             result.put("code", 3);
             result.put("msg", "账号或密码错误");
             return result;
@@ -67,7 +63,7 @@ public class UserServiceImpl implements UserService {
         /*session.setAttribute(session.getId(),userInfo);*/
         result.put("code", 0);
         result.put("msg", "登录成功");
-        session.setAttribute("m", userBean2);
+
         return result;
     }
 }

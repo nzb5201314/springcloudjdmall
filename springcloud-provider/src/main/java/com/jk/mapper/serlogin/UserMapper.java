@@ -10,6 +10,7 @@
 package com.jk.mapper.serlogin;
 
 import com.jk.model.usersigninbean.UserBean;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -20,7 +21,7 @@ import com.jk.model.usersigninbean.UserBean;
  * @since 1.0.0
  */
 public interface UserMapper {
-
+    @Select("select * from h_user t where t.accountnumber= #{accountnumber}")
     UserBean findUserInfoByAccount(String accountnumber);
 
 }
