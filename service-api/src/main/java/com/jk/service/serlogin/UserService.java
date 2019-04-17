@@ -26,7 +26,7 @@ import java.util.HashMap;
  * @since 1.0.0
  */
 public interface UserService {
-    @RequestMapping(value="/userlogin", method= RequestMethod.GET)
+    @RequestMapping(value="/userlogin",  method= RequestMethod.GET)
     public HashMap<String, Object> login(@RequestBody UserBean userBean,@RequestParam(value="imgcode") String imgcode, @RequestParam(value="request") HttpServletRequest request);
 
 }
