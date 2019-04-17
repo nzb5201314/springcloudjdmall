@@ -5,7 +5,7 @@
  * Date:     2019/4/17 11:01
  * History:
  */
-package com.jk.solr;
+package com.jk.controller.solr;
 
 import com.jk.model.solr.SolrBean;
 import org.apache.solr.client.solrj.SolrClient;

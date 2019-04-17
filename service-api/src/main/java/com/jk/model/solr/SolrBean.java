@@ -21,7 +21,7 @@ public class SolrBean implements Serializable {
 
     private static final long serialVersionUID = 4485640596680429377L;
 
-    private String  id;
+    private String    id;
 
     private String  product_title;
 
