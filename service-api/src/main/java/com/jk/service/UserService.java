@@ -9,6 +9,11 @@
  */
 package com.jk.service;
 
+import com.jk.model.usersigninbean.UserBean;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+
 /**
  * 〈一句话功能简述〉〈〉
  *
@@ -16,6 +21,8 @@ package com.jk.service;
  * @create 2019/4/16
  * @since 1.0.0
  */
-public class UserService {
+public interface UserService {
+
+    public HashMap<String, Object> login(UserBean userBean, String imgcode, HttpServletRequest request);
 
 }
