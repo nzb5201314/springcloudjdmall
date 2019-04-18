@@ -2,6 +2,11 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8090/eureka/
+
+      spring:
+        data:
+          solr:
+            host: http://127.0.0.1:8080/solr
 server:
   port: 8092
 spring:

@@ -5,22 +5,22 @@
     <title>Title</title>
     <title>solr检索查询</title>
     <!-- 这是jquery的核心包  -->
-    <script type="text/javascript" src="../jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- 这是easyui的核心包  -->
-    <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/js/easyui/locale/easyui-lang-zh_CN.js"></script>
     <!-- jqeuy默认的css样式 -->
-    <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css"/>
-    <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css"/>
 </head>
 <body>
 <form id="serach_form" method="get" >
 
-    标题：<input type="easyui-textbox" id="product_title" name="goodsName">
+    标题：<input type="easyui-textbox" id="goodsName" name="goodsName">
     <input type="button" onclick="query()" value="提交">
 </form>
 
-<div class="easyui-datagrid" id="role_datagrid">6666</div>
+<div class="easyui-datagrid" id="role_datagrid"></div>
 
 </body>
 <script type="text/javascript" >
@@ -29,8 +29,9 @@
     })
     function query(){
         $("#role_datagrid").datagrid({
-            url:'./solr/search',
+            url:'/solr/search',
             fitColumns:true,
+            fit:true,
             striped:true,
             ctrlSelect:true,
             pagination:true,
@@ -39,7 +40,7 @@
             pageList:[2,3,5],
             method:"post",
             queryParams:{
-                product_title:$("#product_title").val()
+                goodsName:$("#goodsName").val()
 
             },
             columns:[
