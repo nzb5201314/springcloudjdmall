@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <!-- jquery文件 -->
+    <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+
+    <!--  bootstrap引入的文件-->
+    <link rel="stylesheet" type="text/css" href="../js/bootstrap3/css/bootstrap.css"/>
+    <script type="text/javascript" src="../js/bootstrap3/js/bootstrap.js"></script>
+
+    <!--   bootstrap tabs文件-->
+    <link rel="stylesheet" type="text/css" href="../js/bootstrap-table/bootstrap-table.min.css"/>
+    <script type="text/javascript" src="../js/bootstrap-table/bootstrap-table.min.js" ></script>
+    <script type="text/javascript" src="../js/bootstrap-table/locale/bootstrap-table-zh-CN.js"  ></script>
+    <!--  引入时间样式-->
+    <link rel="stylesheet" type="text/css" href="../js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css"/>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" ></script>
+    <script type="text/javascript" src= "../js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+    <!--  引入图片样式-->
+    <link rel="stylesheet" type="text/css" href="../js/bootstrap-fileinput/css/fileinput.min.css"/>
+    <script type="text/javascript" src= "../js/bootstrap-fileinput/js/locales/zh.js"></script>
+    <script type="text/javascript" src= "../js/bootstrap-fileinput/js/fileinput.js"></script>
+    <!-- 引入新增样式 -->
+    <link rel="stylesheet" href="../js/bootStrap-addTabs/bootstrap.addtabs.css"/>
+    <script src="../js/bootStrap-addTabs/bootstrap.addtabs.min.js"></script>
+    <!--bootBox文件  -->
+    <script type="text/javascript" src="../js/bootstrap-bootbox/bootbox.js" ></script>
+</head>
+<body>
+<div class="search-wrapper" id="banner-search">
+    <div class="container">
+        <div class="main-page-title" style="display:none;">开发文档</div>
+        <div class="search-wrapper-inner">
+            <form data-aspm="c-search-form" action="http://localhost:8092/solr/tojdshop" target="_blank" method="GET" accept-charset="utf-8" class="search-form">
+                <input type="hidden" value="doc" name="tabType" />
+                <input type="text" value="" autocomplete="off" id="goodsName" name="goodsName" placeholder="输入关键词搜索" class="search-input">
+                <button type="submit" class="btn-search"   data-aspm-click="d-search-click">搜索</button>
+            </form>
+            <div data-aspm="c-suggest-area" class="J-suggest-search"></div>
+            <div data-aspm="c-hot-area" class="J-hot-search"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

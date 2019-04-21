@@ -45,10 +45,19 @@ public class SolrController {
                 return "solrIndex";
         }
 
+        @RequestMapping("tojdshop")
+        public  String tojdshop(){
+                return "byshopJD";
+        }
+
+        @RequestMapping("toindex")
+        public  String toindex(){
+                return "index";
+        }
 
         @RequestMapping(value="search")
         @ResponseBody
-        public Map<String,Object> userlist(GoodsBean bean, Integer page, Integer rows) throws IOException, SolrServerException {
+        public Map<String,Object> goodlist(GoodsBean bean, Integer page, Integer rows) throws IOException, SolrServerException {
                 //因为使用easyui返回数据
                 Map<String,Object> mSolr=new HashMap<String,Object>();
                 //把所有查询的高亮显示内容发到list中
@@ -65,7 +74,7 @@ public class SolrController {
                 //默认查询字段  一般默认指定
                 params.set("df", "goodsName");
                 //指定查询结果返回哪些字段
-                params.set("fl", "goodsId,goodsName,goodsStatus,goodsPrice,goodsBrand ");
+                params.set("fl", "goodsName,goodsStatus,goodsPrice,goodsBrand ");
                 // 设置高亮字段
                 params.addHighlightField("goodsName"); // 高亮字段
                 //分页
@@ -114,7 +123,7 @@ public class SolrController {
                                 //获得高亮字段查询的值放到变量
                                 highname=list.get(0);
                         }
-                        goods.setGoodsId((Integer) result.get("goodsId"));
+
                         goods.setGoodsName(highname);
                         goods.setGoodsTypeName(highname);
                         goodslist.add(goods);

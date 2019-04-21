@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <title>solr检索查询</title>
+    <!-- 这是jquery的核心包  -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <!-- 这是easyui的核心包  -->
+    <script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/js/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <!-- jqeuy默认的css样式 -->
+    <link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css"/>
+</head>
+<body>
+<form id="serach_form" method="get" >
+
+    标题：<input type="easyui-textbox" id="goodsName" name="goodsName">
+    <input type="button" onclick="query()" value="提交">
+</form>
+
+<table class="table" id="mallTable"></table>
+</body>
+<script type="text/javascript" >
+    function serchUser() {
+        $('#mallTable').bootstrapTable("refresh");
+    }
+    function  initfindUser(){
+        $('#mallTable').bootstrapTable({
+            toolbar:'#toolbar',
+            url:'../user/findByAllUser.do',//获取数据地址
+            pagination:true, //是否展示分页
+            pageList:[1, 2, 5, 10],//分页组件
+            pageNumber:1,
+            pageSize:2,//默认每页条数
+            sidePagination:'server',//分页方式：client客户端分页，server服务端分页（*
+            striped:true,//条纹表格
+            queryParams:function(){
+                return {
+                    page: this.pageNumber,
+                    rows: this.pageSize,
+                    goodsName:$("#goodsName").val(),
+
+                };
+            },
+            columns:[
+                {field:'goodsId',title:'编号'},
+                {field:'goodsName',title:'名称'},
+                {field:'goodsStatus',title:'状态',formatter:function(value,row,index){
+                        return value ==1?"上架":value==0?"下架":"";}},
+                {field:'goodsBrand',title:'品牌'},
+                {field:'goodsPrice',title:'价格'}
+
+            ]
+        });
+    }
+</script>
+</html>
