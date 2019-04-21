@@ -31,6 +31,17 @@ public class UserBean implements Serializable {
 
     private String headportrait;
 
+    private String numbers;
+
+
+    public String getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(String numbers) {
+        this.numbers = numbers;
+    }
+
     public String getHeadportrait() {
         return headportrait;
     }
@@ -79,6 +90,7 @@ public class UserBean implements Serializable {
                 ", accountnumber='" + accountnumber + '\'' +
                 ", password='" + password + '\'' +
                 ", headportrait='" + headportrait + '\'' +
+                ", numbers='" + numbers + '\'' +
                 '}';
     }
 }

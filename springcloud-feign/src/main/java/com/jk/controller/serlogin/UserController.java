@@ -9,14 +9,14 @@
  */
 package com.jk.controller.serlogin;
 
-import com.jk.model.usersigninbean.UserBean;
 import com.jk.service.serlogin.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
 /**
@@ -31,12 +31,29 @@ import java.util.HashMap;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    //登录
     @RequestMapping(value="/userlogin", method= RequestMethod.GET)
-    public HashMap<String, Object> login(UserBean userBean, String imgcode, HttpServletRequest request){
+    public HashMap<String, Object> login(String password, String accountnumber){
 
+        return userService.login(password,accountnumber);
+    }
+    //注册
+    @RequestMapping(value="/register", method= RequestMethod.GET)
+    public String register(String accountnumber,String password,String numbers){
 
-        return userService.login(userBean,imgcode,request);
+        return userService.register(accountnumber,password,numbers);
+    }
+    //获取短信
+    @RequestMapping(value="/gainMessgerCode", method= RequestMethod.GET)
+    @ResponseBody
+    public String gainMessgerCode(String numbers){
+        return userService.gainMessgerCode(numbers);
+    }
+    //短信验证
+    @RequestMapping(value="/messageLogin", method= RequestMethod.GET)
+    @ResponseBody
+    public String messageLogin(String numbers, Integer verificationCode){
+        return userService.messageLogin(numbers,verificationCode);
     }
 
 }

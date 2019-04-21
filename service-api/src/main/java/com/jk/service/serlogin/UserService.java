@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
 /**
@@ -26,7 +27,16 @@ import java.util.HashMap;
  * @since 1.0.0
  */
 public interface UserService {
-    @RequestMapping(value="/userlogin",method= RequestMethod.GET)
-    public HashMap<String, Object> login(@RequestBody UserBean userBean,@RequestParam(value="imgcode") String imgcode, @RequestParam(value="request") HttpServletRequest request);
-
+    //登录
+    @RequestMapping(value="/userlogin", method= RequestMethod.GET)
+    public HashMap<String, Object> login(@RequestParam(value="password") String password, @RequestParam(value="accountnumber") String accountnumber);
+    //注册
+    @RequestMapping(value="/register", method= RequestMethod.GET)
+    String register(@RequestParam(value="accountnumber")String accountnumber,@RequestParam(value="password") String password,@RequestParam(value="numbers") String numbers);
+    //获取验证码
+    @RequestMapping(value="/gainMessgerCode", method= RequestMethod.GET)
+    String gainMessgerCode(@RequestParam(value="numbers")String numbers);
+    //验证短信验证码
+    @RequestMapping(value="/messageLogin", method= RequestMethod.GET)
+    String messageLogin(@RequestParam(value="numbers")String numbers,@RequestParam(value="verificationCode")Integer verificationCode);
 }
