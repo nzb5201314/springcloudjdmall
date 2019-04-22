@@ -5,6 +5,7 @@ import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.domain.AlipayTradePayModel;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.jk.model.PayModel.Paymodel;
 import com.jk.util.AlipayConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,13 +42,14 @@ public class AlipayController {
      */
 
     @RequestMapping("/pay")
-    public void pay(HttpServletRequest request, HttpServletResponse response,String money) throws Exception {
+    public void pay(HttpServletRequest request, HttpServletResponse response, Paymodel paymoney) throws Exception {
         // 模拟从前台传来的数据
         /*String orderNo =(String)((Math.random()*9+1)*1000000000);*/
-        String orderNo = new Date()+"123"; // 生成订单号// 生成订单号
+        Date date = new Date(); // 生成订单号// 生成订单号
+        String orderNo = date.getTime()+"123";
         System.out.println("生成订单号"+orderNo);
-        String totalAmount = money; // 支付总金额
-        String subject = "ITAEMBook"; // 订单名称
+        Integer totalAmount = paymoney.getGoodsPrice(); // 支付总金额
+        String subject = paymoney.getGoodsName(); // 订单名称
         System.out.println("订单名称"+subject);
         String body = "reading"; // 商品描述
         // 封装请求客户端
@@ -60,12 +62,10 @@ public class AlipayController {
         model.setProductCode("FAST_INSTANT_TRADE_PAY"); // 设置销售产品码
         model.setOutTradeNo(orderNo); // 设置订单号
         model.setSubject(subject); // 订单名称
-        model.setTotalAmount(totalAmount); // 支付总金额
+        model.setTotalAmount(String.valueOf(totalAmount)); // 支付总金额
         model.setBody(body); // 设置商品描述
         alipayRequest.setBizModel(model);
-
         String form = client.pageExecute(alipayRequest).getBody(); // 生成表单
-
         response.setContentType("text/html;charset=" + charset);
         response.getWriter().write(form); // 直接将完整的表单html输出到页面
         response.getWriter().flush();
@@ -101,7 +101,7 @@ public class AlipayController {
             mav.setViewName("index");
         } else {
             System.out.println("前往支付失败页面");
-            mav.setViewName("failReturn");
+            mav.setViewName("cartshop");
         }
         return mav;
     }
